@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: build-gcc/src/gamescope
+          path: build-gcc/
 
   download:
     runs-on: ubuntu-latest
