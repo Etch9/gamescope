@@ -2585,7 +2585,7 @@ paint_all( global_focus_t *pFocus, bool async )
 					paint_window(w, w, &frameInfo, pFocus->cursor, PaintWindowFlag::BasePlane | PaintWindowFlag::DrawBorders, 1.0f, override);
 
 					bool needsScaling = frameInfo.layers[0].scale.x < 0.999f && frameInfo.layers[0].scale.y < 0.999f;
-					frameInfo.useFSRLayer0 = g_upscaleFilter == GamescopeUpscaleFilter::FSR && needsScaling;
+					frameInfo.useFSRLayer0 = g_upscaleFilter == GamescopeUpscaleFilter::FSR;
 					frameInfo.useNISLayer0 = g_upscaleFilter == GamescopeUpscaleFilter::NIS && needsScaling;
 				}
 				if ( pFocus == GetCurrentFocus() )
