@@ -33,6 +33,23 @@ jobs:
           export CC=gcc CXX=g++
           meson build-gcc-novr/ -Dinput_emulation=disabled -Denable_openvr_support=false --auto-features=enabled
           ninja -C build-gcc-novr/
+      - name: List Build Directory
+        run: ls -R build/
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: build/src/gamescope
+
+  download:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
 #      - name: Build with clang
 #        run: |
 #          export CC=clang CXX=clang++
